@@ -1,0 +1,238 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.heading {
+  grid-column: 2 / 3;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 1.5rem;
+}
+
+.heading-header {
+  grid-column: 1 / -1;
+  position: relative;
+}
+
+.heading-title {
+  text-align: center;
+  margin-top: 10px;
+  color: #335c82;
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+.heading-title:hover {
+  animation: blink 250ms;
+}
+
+body {
+  font-family: system-ui, -apple-system, 
+  BlinkMacSystemFont, 'Segoe UI', Roboto, 
+  Oxygen, Ubuntu, Cantarell, 'Open Sans', 
+  'Helvetica Neue', sans-serif;
+  background: #f1f5f8;
+  color: #222;
+  /* margin-right: 600px; */
+  /* display: grid;
+  grid-template-columns: repeat(8, 1fr); */
+}
+
+.sort-by-select {
+  border: #f1f5f8;
+  border-radius: 6px;
+  background-color: rgb(182, 206, 226);
+  width: 100px;
+  height: 30px;
+  margin-left: 5%;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.booklist {
+  width: 90vw;
+  max-width: 1170px;
+  margin: 1rem auto;
+  margin-left: 5%;
+  display: grid;
+  gap: 2rem;
+}
+
+/* sidebar */
+
+.sidebar {
+  position: absolute;
+  background-color: rgb(182, 206, 226);
+  border-radius: 10px;
+  padding: 5px 7px;
+  z-index: -1;
+  width: 900px;
+  height: auto; /* 155px */
+  margin-left: 30%;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  overflow-y: auto; /* Add scrollbar when content exceeds height */
+}
+
+.sidebar-suggestion h4{
+  font-size: 15px;
+  font-weight: 400;
+}
+
+/* Book Suggestions */
+
+.book-suggestions-div {
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  width: 350px;
+  height: 100%;
+  background-color: rgb(182, 206, 226);
+  border-radius: 10px;
+  padding: 5px 7px;
+  z-index: 1000; */
+  width: 350px;
+  height: auto;
+  font-size: 20px;
+  background-color: rgb(182, 206, 226);
+  border-radius: 10px;
+  padding: 5px 7px;
+  margin-left: 5%;
+  z-index: 1000;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-control-author {
+  margin-left: 0px;
+}
+
+.book-author-input, .book-name-input {
+  height: 1.4rem;
+  font-size: 16px;
+}
+
+.submit-btn {
+  font-size: 18px;
+}
+
+.suggestions-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+/* media queries */
+
+@media screen and (max-width: 480px) {
+  .booklist {
+    grid-template-columns: 1fr; /* Adjust the number of columns for phone screens */
+    text-align: center; /* Center the items inside the booklist for phones */
+  }
+
+  /* Add any additional styles specific to phone screens */
+}
+
+@media screen and (min-width: 665px) {
+  .booklist {
+      grid-template-columns: repeat(3, 1fr);
+      text-align: center;
+  }
+}
+
+@media screen and (min-width: 1056px){
+  .booklist{
+      grid-template-columns: repeat(5, 1fr);
+      text-align: center;
+  }
+}
+.book {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgb(181, 190, 200);
+}
+
+.book img {
+  display: block;
+  margin: 0 auto;
+  max-width: 200px;
+  max-height: 200px;
+  border: 0.5px solid #000;
+}
+
+.book h1{
+  margin-top: 0.2rem;
+}
+
+.book h4{
+  color: #617d98;
+  font-size: 0.85rem;
+  margin-top: 0.1rem;
+}
+
+/* .book p{
+  margin-top: 0.3rem;
+} */
+
+button {
+  grid-template-columns: 2;
+  margin-top: 0.2rem;
+  padding: 0.35rem;
+  border-radius: 4px;
+  border: 1px solid rgb(181,190, 200);
+}
+
+.audio {
+  margin-top: 0.7rem;
+  margin-right: 0.7rem;
+}
+
+.favorite-book {
+  display: inline-block;
+  margin-bottom: 13px;
+  margin-right: -200px;
+  border: #fff;
+  width: 25px;
+  height: 25px;
+  background-size: cover;
+  transition: background-image 0.3s ease;
+}
+
+/* .favorite-book.selected {
+  background-image: url('./star.png');
+}
+
+.favorite-book.unselected {
+  background-image: url('./empty-star.png');
+} */
+
+/* :hover section */
+
+button:hover {
+  background-color: rgb(115, 117, 160);
+  cursor: pointer;
+  color: #fff;
+}
+
+.book img:hover {
+  cursor: pointer;
+}
+
+.book h1:hover {
+  cursor: pointer;
+  animation: blink 250ms;
+  text-decoration: underline;
+}
+
+/* keyframe section */
+
+@keyframes blink {
+  0%, 100% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0;
+  }
+}

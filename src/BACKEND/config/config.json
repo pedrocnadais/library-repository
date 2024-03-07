@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "jciundjx",
+    "password": "7wrNB8VuSfiOQvVZoH9m1QseVyRx-4z9",
+    "database": "jciundjx",
+    "host": "hansken.db.elephantsql.com",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "jciundjx",
+    "password": "7wrNB8VuSfiOQvVZoH9m1QseVyRx-4z9",
+    "database": "jciundjx",
+    "host": "hansken.db.elephantsql.com",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "jciundjx",
+    "password": "7wrNB8VuSfiOQvVZoH9m1QseVyRx-4z9",
+    "database": "jciundjx",
+    "host": "hansken.db.elephantsql.com",
+    "dialect": "postgres"
+  }
+}

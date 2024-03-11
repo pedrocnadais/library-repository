@@ -14,17 +14,17 @@ const NewBooks = () => {
     e.preventDefault();
     if (title && author) {
       try {
-        const response = await axios.post('/', {
+        const response = await axios.post('http://localhost:4000/suggestion', {
           title: title,
           author: author
         });
-        console.log('input sent successfully:', response.data);
+        console.log('Book added successfully:', response.data);
         setListBooks(prevListBooks => [...prevListBooks, response.data]);
         saveToLocalStorage([...listBooks, response.data]);
         setAuthor('');
         setTitle('');
       } catch (error) {
-        console.error('error is: ', error);
+        console.error('Error adding book:', error);
       }
     }
   }
@@ -33,7 +33,7 @@ const NewBooks = () => {
 
   return (
     <>
-    <h2 className="suggestions-title">Book Suggestions</h2>
+      <h2 className="suggestions-title">Book Suggestions</h2>
       <article>
         <form className="suggestions-form" onSubmit={handleSubmit}>
           <div className="form-control-name">
@@ -62,7 +62,7 @@ const NewBooks = () => {
           </div>
           <button type='submit' className="submit-btn">Add book to the list</button>
         </form>
-        {listBooks.map((finalBook, index) =>{
+        {listBooks.map((finalBook, index) => {
           return (
             <div className="item" key={`${finalBook.title}-${index}`}>
               <h4>{finalBook.title}</h4>

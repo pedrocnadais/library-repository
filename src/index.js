@@ -41,39 +41,39 @@ function BookList() {
           <a href="https://github.com/pedaaro">Pedro's Book Library</a>
         </h1>
       </div> 
-    <section> 
-      {/* <div>
-        <Sidebar />
-      </div> */}
+      <section> 
+        {/* <div>
+          <Sidebar />
+        </div> */}
 
-      <div id='book-suggestions' className='book-suggestions-div'>
-        <NewBooks />
-      </div>
+        <div id='book-suggestions' className='book-suggestions-div'>
+          <NewBooks />
+        </div>
 
-     <div className='sort-by-div'>
-  <select className='sort-by-select' onChange={(e) => setSortBy(e.target.value)}>
-    <option key="reorder" value="">Reorder</option>
-    <option key="author" value="author">Author (a-z)</option>
-    <option key="title" value="title">Title (a-z)</option>
-  </select>
-</div>
+        <div className='sort-by-div'>
+          <select className='sort-by-select' onChange={(e) => setSortBy(e.target.value)}>
+            <option key="reorder" value="">Reorder</option>
+            <option key="author" value="author">Author (a-z)</option>
+            <option key="title" value="title">Title (a-z)</option>
+          </select>
+        </div>
 
-      
-      <div className='booklist'>
-  {books.map(book => (
-    <Book
-      key={book.id} // Unique key based on book's id
-      id={book.id}
-      img={book.img}
-      title={book.title}
-      author={book.author}
-      audio={book.audio}
-      written={book.written}
-      // favorite={book.favorite}
-    />
-  ))}
-</div>
-       </section>
+        
+        <div className='booklist'>
+          {books.map(book => (
+            <Book
+              key={book.id} // Unique key based on book's id
+              id={book.id}
+              img={book.img}
+              title={book.title}
+              author={book.author}
+              audio={book.audio}
+              written={book.written}
+              // favorite={book.favorite}
+            />
+          ))}
+        </div>
+      </section>
     </section>
   );
   

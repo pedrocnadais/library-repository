@@ -14,7 +14,7 @@ const NewBooks = () => {
     e.preventDefault();
     if (title && author) {
       try {
-        const response = await axios.post('http://localhost:4000/suggestion', {
+        const response = await axios.post('/suggestion', {
           title: title,
           author: author
         });

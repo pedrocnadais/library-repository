@@ -1,14 +1,16 @@
 const express = require("express");
 const cors = require("cors");
 const { bookListPool } = require("./database")
+require('dotenv').config();
 
 const app = express();
+const PORT = process.env.PORT || 4000;
 
 app.use(express.json());
 app.use(cors());
 
 // Receive suggestions
-app.post("/", (req, res) => {
+app.post("/suggestion", (req, res) => {
   const { title, author } = req.body;
 
   console.log("Title: " + title);
@@ -29,7 +31,7 @@ app.post("/", (req, res) => {
 });
 
 // Display the items on the frontend
-app.get("/", async (req, res) => {
+app.get("/books", async (req, res) => {
   try {
     const { database } = req.query; 
     if (database && database !== 'book_list') {
@@ -52,4 +54,4 @@ app.get("/", async (req, res) => {
   }
 });
 
-app.listen(4000, () => console.log("server on localhost:4000"));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

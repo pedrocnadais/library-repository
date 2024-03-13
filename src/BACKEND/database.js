@@ -32,7 +32,7 @@ const sequelize = new Sequelize({
 });
 
 // Define BookSuggestion model for book_suggestion table
-const BookSuggestion = sequelize.define('BookSuggestion', {
+const BookSuggestion = sequelize.define('book_suggestion', {
   title: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -44,7 +44,7 @@ const BookSuggestion = sequelize.define('BookSuggestion', {
 });
 
 // Define Book model for books_list table
-const Book = sequelize.define('Book', {
+const Book = sequelize.define('books_list', {
   title: {
     type: DataTypes.STRING,
     allowNull: false,

@@ -4,8 +4,8 @@ import axios from 'axios';
 
 
 import './index.css';
-import Book from './COMPONENTS/book.js';
-import NewBooks from './COMPONENTS/newBooks.js';
+import Book from './FRONTEND/COMPONENTS/book.js';
+import NewBooks from './FRONTEND/COMPONENTS/newBooks.js';
 // import Sidebar from './COMPONENTS/sidebar.js';
 
 function BookList() {

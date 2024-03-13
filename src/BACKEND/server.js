@@ -4,7 +4,7 @@ const { bookListPool } = require("./database")
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 10000;
 
 app.use(express.json());
 app.use(cors());
@@ -31,7 +31,7 @@ app.post("/suggestion", (req, res) => {
 });
 
 // Display the items on the frontend
-app.get("/books", async (req, res) => {
+app.get("https://library-repository.onrender.com//books", async (req, res) => {
   try {
     const { database } = req.query; 
     if (database && database !== 'book_list') {

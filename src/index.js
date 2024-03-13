@@ -4,15 +4,15 @@ import axios from 'axios';
 
 
 import './index.css';
-import Book from './FRONTEND/COMPONENTS/book.js';
-import NewBooks from './FRONTEND/COMPONENTS/newBooks.js';
+import Book from './book.js';
+import NewBooks from './newBooks.js';
 // import Sidebar from './COMPONENTS/sidebar.js';
 
 function BookList() {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    axios.get('https://library-repository.onrender.com/books')
+    axios.get('/books')
       .then(response => {
         if (Array.isArray(response.data)) {
           setBooks(response.data);

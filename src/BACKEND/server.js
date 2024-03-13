@@ -58,7 +58,6 @@
 
 const express = require("express");
 const cors = require("cors");
-const { Sequelize } = require('sequelize');
 require('dotenv').config();
 
 // Import sequelize instance from database.js
@@ -76,32 +75,40 @@ app.use(cors());
     await sequelize.sync();
     console.log('Database synchronized');
   } catch (error) {
-    console.error('Error synchronizing database:', error);
+    console.error('The DB is not synchronizing because:', error);
   }
 })();
 
-// Receive suggestions
-app.post("/suggestion", async (req, res) => {
-  const { title, author } = req.body;
+// Prefix all endpoints with "/api"
+app.use('/api', (req, res, next) => {
+  console.log('API request received');
+  next();
+});
 
+// Receive suggestions
+app.post("/api/suggestion", async (req, res) => {
   try {
-    const newBook = await BookSuggestion.create({ title, author });
-    console.log("Suggestion saved:", newBook.toJSON());
-    res.json(newBook);
+    const { title, author } = req.body;
+  
+    const newSuggestion = await BookSuggestion.create({ title, author });
+
+    console.log('data received');
+    console.log("New suggestion sent:", newSuggestion.toJSON());
+    res.json(newSuggestion);
   } catch (error) {
-    console.error("Error saving suggestion:", error);
-    res.status(500).json({ error: "Internal server error" });
+    console.error("Error saving suggestion because:", error);
+    res.status(500).json({ error: "The error is in the internal server" });
   }
 });
 
 // Display the items on the frontend
-app.get("/books", async (req, res) => {
+app.get("/api/books", async (req, res) => {
   try {
     const books = await Book.findAll();
     res.json(books);
   } catch (error) {
-    console.error("Error fetching books:", error);
-    res.status(500).json({ error: "Internal server error" });
+    console.error("Error fetching books because:", error);
+    res.status(500).json({ error: "This is the internal server error" });
   }
 });
 

@@ -53,6 +53,18 @@ const Book = sequelize.define('Book', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  img: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  audio: {
+    type: DataTypes.TEXT,
+    allowNull: false
+  },
+  written: {
+    type: DataTypes.TEXT,
+    allowNull: false
+  }
   // Additional columns as needed
 });
 

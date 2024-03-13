@@ -58,29 +58,17 @@
 
 const express = require("express");
 const cors = require("cors");
-const { Sequelize, DataTypes } = require('sequelize');
+const { Sequelize } = require('sequelize');
 require('dotenv').config();
 
 // Import sequelize instance from database.js
-const sequelize = require("./database");
+const { sequelize, BookSuggestion, Book } = require("./database");
 
 const app = express();
 const PORT = process.env.PORT || 10000;
 
 app.use(express.json());
 app.use(cors());
-
-// Define a Book model using Sequelize
-const Book = sequelize.define('Book', {
-  title: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  author: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-});
 
 // Synchronize the model with the database
 (async () => {
@@ -97,12 +85,11 @@ app.post("/suggestion", async (req, res) => {
   const { title, author } = req.body;
 
   try {
-    const newBook = await Book.create({ title, author });
-    console.log("Data saved");
-    console.log(newBook.toJSON());
+    const newBook = await BookSuggestion.create({ title, author });
+    console.log("Suggestion saved:", newBook.toJSON());
     res.json(newBook);
   } catch (error) {
-    console.error("Error:", error);
+    console.error("Error saving suggestion:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 });
@@ -113,7 +100,7 @@ app.get("/books", async (req, res) => {
     const books = await Book.findAll();
     res.json(books);
   } catch (error) {
-    console.error("Error:", error);
+    console.error("Error fetching books:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 });

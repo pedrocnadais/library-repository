@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 // Receive suggestions
-app.post("https://library-repository.onrender.com/suggestion", (req, res) => {
+app.post("/", (req, res) => {
   const { title, author } = req.body;
 
   console.log("Title: " + title);
@@ -31,7 +31,7 @@ app.post("https://library-repository.onrender.com/suggestion", (req, res) => {
 });
 
 // Display the items on the frontend
-app.get("https://library-repository.onrender.com/books", async (req, res) => {
+app.get("/", async (req, res) => {
   try {
     const { database } = req.query; 
     if (database && database !== 'book_list') {

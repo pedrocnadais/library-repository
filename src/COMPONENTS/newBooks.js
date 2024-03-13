@@ -14,7 +14,7 @@ const NewBooks = () => {
     e.preventDefault();
     if (title && author) {
       try {
-        const response = await axios.post('/suggestion', {
+        const response = await axios.post('https://library-repository.onrender.com/suggestion', {
           title: title,
           author: author
         });

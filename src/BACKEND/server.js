@@ -64,7 +64,7 @@ require('dotenv').config();
 const { sequelize, BookSuggestion, Book } = require("./database");
 
 const app = express();
-const PORT = process.env.PORT || 10000;
+const PORT = process.env.RENDER_PORT || 10000;
 
 app.use(express.json());
 app.use(cors());
@@ -93,6 +93,7 @@ app.post("/api/suggestion", async (req, res) => {
     const newSuggestion = await BookSuggestion.create({ title, author });
 
     console.log('data received');
+    console.log("New suggestion created:", newSuggestion);
     console.log("New suggestion sent:", newSuggestion.toJSON());
     res.json(newSuggestion);
   } catch (error) {
@@ -102,7 +103,7 @@ app.post("/api/suggestion", async (req, res) => {
 });
 
 // Display the items on the frontend
-app.get("https://library-repository.onrender.com/", async (req, res) => {
+app.get("/api/books", async (req, res) => {
   try {
     const books = await Book.findAll();
     res.json(books);

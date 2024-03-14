@@ -26,6 +26,7 @@ const sequelize = new Sequelize({
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
   dialect: 'postgres',
+  connectionString: process.env.INTERNAL_DB_URL,
   ssl: {
     rejectUnauthorized: false, // Necessary if using self-signed SSL certificates
   },

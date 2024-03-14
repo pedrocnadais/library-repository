@@ -12,7 +12,7 @@ function BookList() {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    axios.get('https://library-repository-1.onrender.com/api/books')
+    axios.get('https://library-repository.onrender.com/')
       .then(response => {
         if (Array.isArray(response.data)) {
           setBooks(response.data);

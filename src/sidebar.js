@@ -1,11 +1,12 @@
 // import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
+// import { client } from './axios.config.js';
+
 
 // function Sidebar() {
 //   const [suggestions, setSuggestions] = useState([]);
 
 //   useEffect(() => {
-//     axios.get('http://localhost:4000/')
+//     client.get('http://localhost:4000/')
 //       .then(response => {
 //         setSuggestions(response.data);
 //       })

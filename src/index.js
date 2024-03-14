@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
-import axios from 'axios';
-
 
 import './index.css';
 import Book from './book.js';
 import NewBooks from './newBooks.js';
+import { client } from './axios.config.js';
 // import Sidebar from './COMPONENTS/sidebar.js';
 
 function BookList() {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/books")
+    client.get("/api/books")
       .then(response => {
         if (Array.isArray(response.data)) {
           setBooks(response.data);

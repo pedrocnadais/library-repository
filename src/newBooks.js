@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from 'axios'
+import { client } from "./axios.config";
 
 const NewBooks = () => {
   const [title, setTitle] = useState('');
@@ -14,7 +14,7 @@ const NewBooks = () => {
     e.preventDefault();
     if (title && author) {
       try {
-        const response = await axios.post('/api/suggestion', {
+        const response = await client.post('/api/suggestion', {
           title: title,
           author: author
         });

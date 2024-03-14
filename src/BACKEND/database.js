@@ -40,7 +40,10 @@ const BookSuggestion = sequelize.define('book_suggestion', {
   author: {
     type: DataTypes.STRING,
     allowNull: false,
-  },
+  }
+}, {
+  tableName: 'book_suggestion',
+  timestamps: false
 });
 
 // Define Book model for books_list table
@@ -65,7 +68,10 @@ const Book = sequelize.define('books_list', {
     type: DataTypes.TEXT,
     allowNull: false
   }
-  // Additional columns as needed
+},
+{
+  tableName: 'books_list',
+  timestamps: false
 });
 
 // Synchronize models with the database

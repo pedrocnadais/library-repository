@@ -59,7 +59,7 @@ function BookList() {
 
         
         <div className='booklist'>
-          {books.map(book => (
+          {sortedBooks.map(book => (
             <Book
               key={book.id} // Unique key based on book's id
               id={book.id}

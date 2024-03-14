@@ -103,7 +103,7 @@ app.post("/api/suggestion", async (req, res) => {
 });
 
 // Display the items on the frontend
-app.get("https://library-repository.onrender.com/api/books", async (req, res) => {
+app.get("api/books", async (req, res) => {
   try {
     const books = await Book.findAll();
     res.json(books);

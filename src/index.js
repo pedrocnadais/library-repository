@@ -37,7 +37,7 @@ function BookList() {
     <section>
       <div className='heading-header'>
         <h1 className='heading-title'>
-          <a href="https://github.com/pedaaro">Pedro's Book Library</a>
+          Online Public Library
         </h1>
       </div> 
       <section> 

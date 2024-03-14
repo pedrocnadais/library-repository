@@ -93,7 +93,6 @@ app.post("/api/suggestion", async (req, res) => {
     const newSuggestion = await BookSuggestion.create({ title, author });
 
     console.log('data received');
-    console.log("New suggestion created:", newSuggestion);
     console.log("New suggestion sent:", newSuggestion.toJSON());
     res.json(newSuggestion);
   } catch (error) {
